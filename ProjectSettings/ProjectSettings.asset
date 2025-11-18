@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 28
-  productGUID: aab47338984e81543a2537a8350adb01
+  productGUID: f9986f8d15eeaef4a90dd45f02243c59
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: TileJumperNxt
+  productName: TileJumper2
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -142,7 +142,8 @@ PlayerSettings:
   visionOSBundleVersion: 1.0
   tvOSBundleVersion: 1.0
   bundleVersion: 0.1.0
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -842,14 +843,14 @@ PlayerSettings:
   editorAssembliesCompatibilityLevel: 1
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: TileJumperNxt
+  metroPackageName: TileJumper2
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: TileJumperNxt
+  metroApplicationDescription: TileJumper2
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -920,10 +921,10 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 4355b840-4920-453f-b24b-75a3b8e94c83
+  cloudProjectId: c06eb45e-1e11-4885-b7b6-58fb9ce80254
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: TileJumperNxt
+  projectName: TileJumper2
   organizationId: supriyodana
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0

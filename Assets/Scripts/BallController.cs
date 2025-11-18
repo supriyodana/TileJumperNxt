@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BallController : MonoBehaviour
@@ -18,9 +19,13 @@ public class BallController : MonoBehaviour
 
     public bool isOnTile = true;
 
+    public bool isGameOver = false;
+
     public int testScore = 0;
 
     public TextMeshProUGUI scoreText;
+
+    public GameObject gameOverCanvas;
 
     // private Vector2 startTouchPos;
 
@@ -31,11 +36,16 @@ public class BallController : MonoBehaviour
 
 
     // }
+    void Start()
+    {
+        gameOverCanvas.SetActive(false);
+    }
 
     private void Update()
     {
         // HandleDragInput();
         HandleKeyInput();
+        HandleTouchInput();
         if (!isJumping && isOnTile)  //isOnTile
         {
             StartCoroutine(PerformJump());
@@ -75,7 +85,14 @@ public class BallController : MonoBehaviour
             }
         }
 
-        //
+        if(transform.position.y < -10)
+        {
+            // Debug.Log("GameOver.........");
+            isGameOver = true;
+            gameOverCanvas.SetActive(true);
+
+        }
+
 
     }
 
@@ -105,13 +122,31 @@ public class BallController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             currentLane = 0;
-            Debug.Log("leftArrowPressed");
+            // Debug.Log("leftArrowPressed");
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             currentLane = 1;
         }
     }
+
+    void HandleTouchInput()
+    {
+        if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began){
+            Vector2 touchPos = Input.GetTouch(0).position;
+
+            if(touchPos.x < Screen.width * 0.5)
+            {
+                currentLane = 0;
+            }
+            else
+            {
+                currentLane = 1;
+            }
+        }
+    }
+
+
 
 
     System.Collections.IEnumerator PerformJump()
@@ -146,13 +181,12 @@ public class BallController : MonoBehaviour
         // isOnTile = true; //tst
     }
 
-    private void OnCollisionEnter(Collision collision)   //updateed to stay for false jump issue
+    private void OnCollisionEnter(Collision collision)
     {
-        //
         if (collision.gameObject.CompareTag("Tile"))
         {
             isOnTile = true;
-            Debug.Log("done");
+            // Debug.Log("done");
             testScore += 1; //tst
             scoreText.text = testScore.ToString();
         }

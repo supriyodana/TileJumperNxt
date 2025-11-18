@@ -4,7 +4,6 @@ public class FollowPlayer : MonoBehaviour
 {
     public Transform Ball;
 
-    [Header("Camera Settings")]
     public float followSpeed = 5f;
     public float fixedX = 0f;
     public float fixedY = 15f;
