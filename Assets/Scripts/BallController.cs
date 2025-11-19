@@ -6,7 +6,7 @@ public class BallController : MonoBehaviour
 {
 
     private float jumpDistance = 10f;
-    private float jumpHeight = 2f;
+    private float jumpHeight = 2f; //2f
     private float jumpDuration = 1f; //
    
 
@@ -24,7 +24,9 @@ public class BallController : MonoBehaviour
     public int testScore = 0;
 
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI scoreTextInGameOverSreen;
 
+    public GameObject currentScoreCanvas;
     public GameObject gameOverCanvas;
 
     // private Vector2 startTouchPos;
@@ -40,6 +42,8 @@ public class BallController : MonoBehaviour
     void Start()
     {
         gameOverCanvas.SetActive(false);
+        currentScoreCanvas.SetActive(true);
+        
     }
 
     private void Update()
@@ -90,8 +94,9 @@ public class BallController : MonoBehaviour
         {
             // Debug.Log("GameOver.........");
             isGameOver = true;
+            scoreTextInGameOverSreen.text = "Your Score : "+testScore.ToString();
+            currentScoreCanvas.SetActive(false);
             gameOverCanvas.SetActive(true);
-
         }
 
 
@@ -175,8 +180,7 @@ public class BallController : MonoBehaviour
         Vector3 end = new Vector3(targetX, start.y, forward);
 
         float t = 0f;
-
-        while (t < 1f)
+          while (t < 1f)   
         {
             t += Time.deltaTime / jumpDuration;
 

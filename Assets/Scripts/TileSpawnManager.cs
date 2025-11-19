@@ -34,6 +34,7 @@ public class TileManager : MonoBehaviour
         if (player.position.z + 50 > spawnZ)
         {
             SpawnTilePattern();
+            // Debug.Log("tilePatternSpawne-----------");
             // Debug.Log(player.position.z.ToString());
         }
     }
