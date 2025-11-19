@@ -29,6 +29,10 @@ public class BallController : MonoBehaviour
     public GameObject currentScoreCanvas;
     public GameObject gameOverCanvas;
 
+    public AudioSource jumpSound;
+    public AudioSource gameOverSound;
+    private bool isGameOverSoundplayed = false;
+
     // private Vector2 startTouchPos;
     
 
@@ -43,6 +47,10 @@ public class BallController : MonoBehaviour
     {
         gameOverCanvas.SetActive(false);
         currentScoreCanvas.SetActive(true);
+
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+        jumpSound = audioSources[0];
+        gameOverSound = audioSources[1];
         
     }
 
@@ -92,6 +100,12 @@ public class BallController : MonoBehaviour
 
         if(transform.position.y < -10)
         {
+            if (!isGameOverSoundplayed)
+            {
+                gameOverSound.Play();
+                isGameOverSoundplayed = true;
+            }
+            
             // Debug.Log("GameOver.........");
             isGameOver = true;
             scoreTextInGameOverSreen.text = "Your Score : "+testScore.ToString();
@@ -169,6 +183,7 @@ public class BallController : MonoBehaviour
     System.Collections.IEnumerator PerformJump()
     {
         isJumping = true;
+        jumpSound.Play();
         isOnTile = false; //tst
 
         Vector3 start = transform.position;
