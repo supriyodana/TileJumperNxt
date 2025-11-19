@@ -8,7 +8,7 @@ public class BallController : MonoBehaviour
     private float jumpDistance = 10f;
     private float jumpHeight = 2f;
     private float jumpDuration = 1f; //
-
+   
 
     private float laneOffset = 6f;
     // x -> -3  (left)   3(right)
@@ -20,7 +20,7 @@ public class BallController : MonoBehaviour
     public bool isOnTile = true;
 
     public bool isGameOver = false;
-
+      
     public int testScore = 0;
 
     public TextMeshProUGUI scoreText;
@@ -28,6 +28,7 @@ public class BallController : MonoBehaviour
     public GameObject gameOverCanvas;
 
     // private Vector2 startTouchPos;
+    
 
 
 
@@ -96,6 +97,14 @@ public class BallController : MonoBehaviour
 
     }
 
+    // void TryJump()
+    // {
+    //     if(!isJumping && isOnTile)
+    //     {
+    //         StartCoroutine(PerformJump());
+    //     }
+    // }
+
     // void HandleDragInput()
     // {
     //     if (Input.touchCount == 0) return;
@@ -123,10 +132,12 @@ public class BallController : MonoBehaviour
         {
             currentLane = 0;
             // Debug.Log("leftArrowPressed");
+            // TryJump();
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             currentLane = 1;
+            // TryJump();
         }
     }
 
@@ -143,6 +154,7 @@ public class BallController : MonoBehaviour
             {
                 currentLane = 1;
             }
+            // TryJump();
         }
     }
 
