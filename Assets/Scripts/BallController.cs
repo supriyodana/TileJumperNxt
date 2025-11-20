@@ -26,6 +26,8 @@ public class BallController : MonoBehaviour
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI scoreTextInGameOverSreen;
 
+    public TextMeshProUGUI commentsText;
+
     public GameObject currentScoreCanvas;
     public GameObject gameOverCanvas;
 
@@ -51,7 +53,7 @@ public class BallController : MonoBehaviour
         AudioSource[] audioSources = GetComponents<AudioSource>();
         jumpSound = audioSources[0];
         gameOverSound = audioSources[1];
-        
+    
     }
 
     private void Update()
@@ -112,6 +114,17 @@ public class BallController : MonoBehaviour
             currentScoreCanvas.SetActive(false);
             gameOverCanvas.SetActive(true);
         }
+
+        // if(testScore<5)
+        // {
+        //     commentsText.text = "Focus";
+        // }else if(testScore< 50)
+        // {
+        //     commentsText.text = "";
+        // }else if(testScore< 55)
+        // {
+        //     commentsText.text = "Good";
+        // }
 
 
     }
@@ -195,7 +208,7 @@ public class BallController : MonoBehaviour
         Vector3 end = new Vector3(targetX, start.y, forward);
 
         float t = 0f;
-          while (t < 1f)   
+          while (t < 1f)
         {
             t += Time.deltaTime / jumpDuration;
 

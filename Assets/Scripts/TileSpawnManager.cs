@@ -31,7 +31,7 @@ public class TileManager : MonoBehaviour
 
     private void Update()
     {
-        if (player.position.z + 50 > spawnZ)
+        if (player.position.z + 60 > spawnZ)
         {
             SpawnTilePattern();
             // Debug.Log("tilePatternSpawne-----------");
